@@ -14,7 +14,13 @@ void main(void)
   const int (*p_ci4);   /* Pointer to constant int */
 
   p_ci = &i;                      /* Good case */ /* currently uninitialized int */
-  printf("*p_ci: %d \n", *p_ci); /* print: currently uninitialized int */
+  printf("*p_ci: %d \n", *p_ci);  /* print: currently uninitialized int */
+
+  p_ci2 = p_i; // compiled case but it has run-time error  
+  //  warning: uninitialized local variable 'p_i' used  
+  // so we need to move it to below;
+  printf("*p_ci2: %d", *p_ci2); // print: currently uninitialized int 
+
   
   printf("ci5: %d \n", ci5);    // print: ci5
  // printf("i: %d \n", i);      // print: i 
