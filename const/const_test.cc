@@ -13,7 +13,11 @@ void main(void)
   const int *p_ci3;     /* Pointer to constant int */
   const int (*p_ci4);   /* Pointer to constant int */
 
+  p_ci = &i;                      /* Good case */ /* currently uninitialized int */
+  printf("*p_ci: %d \n", *p_ci); /* print: currently uninitialized int */
+
+
   
-  printf("ci5: %d \n", ci5);  // print: ci5
+  printf("ci5: %d \n", ci5);    // print: ci5
  // printf("i: %d \n", i);      // print: i 
 }
