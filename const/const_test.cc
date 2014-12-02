@@ -8,6 +8,6 @@ void main(void)
   int i;			      	// int
   
 
-  printf("ci5: %d \n", ci5);  // print: ci5 
-	printf("i: %d \n", i);      // print: i 
+  printf("ci5: %d \n", ci5);  // print: ci5
+  printf("i: %d \n", i);      // print: i 
 }
