@@ -6,7 +6,7 @@ void main(void)
   const int ci5 = 5;    /* constant int */
  /* const int ci6; ERROR: 'ci6' : const object must be initialized if not extern */	
   int i;                // int
-  int *p_i;             /* Pointer to int */
+  int *p_i = &i;             /* Pointer to int */
 
   int const *p_ci;      /* Pointer to constant int */
   int const (*p_ci2);   /* Pointer to constant int */
@@ -19,7 +19,7 @@ void main(void)
   p_ci2 = p_i; // compiled case but it has run-time error  
   //  warning: uninitialized local variable 'p_i' used  
   // so we need to move it to below;
-  printf("*p_ci2: %d", *p_ci2); // print: currently uninitialized int 
+  printf("*p_ci2: %d \n", *p_ci2); // print: currently uninitialized int 
 
   
   printf("ci5: %d \n", ci5);    // print: ci5
