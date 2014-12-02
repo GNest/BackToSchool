@@ -15,8 +15,6 @@ void main(void)
 
   p_ci = &i;                      /* Good case */ /* currently uninitialized int */
   printf("*p_ci: %d \n", *p_ci); /* print: currently uninitialized int */
-
-
   
   printf("ci5: %d \n", ci5);    // print: ci5
  // printf("i: %d \n", i);      // print: i 
