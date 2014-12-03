@@ -6,8 +6,7 @@ void main(void)
   const int ci5 = 5;    /* constant int */
  /* const int ci6; ERROR: 'ci6' : const object must be initialized if not extern */	
   int i;                // int
-  // int *p_i = &i;             /* Pointer to int */
-  int *p_i;             /* Pointer to int */
+  int *p_i = &i;        /* Pointer to int */
 
 
   int const *p_ci;      /* Pointer to constant int */
@@ -15,16 +14,14 @@ void main(void)
   const int *p_ci3;     /* Pointer to constant int */
   const int (*p_ci4);   /* Pointer to constant int */
 
-//  p_ci = &i;                      /* Good case */ /* currently uninitialized int */
+  p_ci = &i;                      /* Good case */ /* currently uninitialized int */
   printf("*p_ci: %d(0x%x) \n", *p_ci, *p_ci);  /* print: currently uninitialized int 
-                                     compiled case but it has run-time error
-                                     in Debug Mode(VS2010) and ok in Release 
+                                     compiled case and ok in 2 modes (Release and Debug)
                                   */
 
-  p_ci = p_i; // compiled case but it has run-time error in Debug Mode(VS2010) and ok in Release 
-  //  warning: uninitialized local variable 'p_i' used  
-  // so we need to move it to below;
-  printf("*p_ci2: %d(0x%x) \n", *p_ci2, *p_ci2); // print: currently uninitialized int 
+  p_ci4 = p_i; // compiled case and ruuning is ok in 2 modes (Release and Debug)
+  //  no warning: uninitialized local variable 'p_i' used because in line 9 we have (int *p_i = &i;)
+  printf("*p_ci4: %d(0x%x) \n", *p_ci4, *p_ci4); // print: currently uninitialized int 
 
   
   printf("ci5: %d(0x%x) \n", ci5, ci5);    // print: ci5
